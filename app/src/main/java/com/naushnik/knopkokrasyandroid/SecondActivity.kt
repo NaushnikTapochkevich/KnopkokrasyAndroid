@@ -14,4 +14,7 @@ class SecondActivity : AppCompatActivity() {
         val transmitted = intent.getStringExtra("transmitted")
         textView.text = transmitted
     }
+    companion object{
+        const val TRANSMITTED = "transmitted"
+    }
 }

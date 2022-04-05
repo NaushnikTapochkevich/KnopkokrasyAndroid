@@ -25,17 +25,27 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this, SecondActivity::class.java)
 
-            if ((username.length() >= 3) && (password.length() >= 8)) {
+            val regex = Regex("[0-9]")
+            val textPassword = password.text.toString()
+            val matched = regex.containsMatchIn(textPassword)
+
+            if ((username.length() >= 3) and (password.length() >= 8) and (matched)) {
                 textError.visibility = View.INVISIBLE
-                intent.putExtra("transmitted", username.text.toString())
+                intent.putExtra(SecondActivity.TRANSMITTED, username.text.toString())
                 startActivity(intent)
-            } else if (username.length() < 3) {
+            } else if ((username.length() < 3) and (password.length() < 8)) {
                 textError.visibility = View.VISIBLE
-                textError.setText("Че то не так с логином")
-            } else if (password.length() < 8) {
-                textError.visibility = View.VISIBLE
-                textError.setText("Че то не так с паролем")
+                textError.setText("Че то не так с паролем и логином")
+            } else {
+                if (username.length() < 3) {
+                    textError.visibility = View.VISIBLE
+                    textError.setText("Че то не так с логином")
+                } else if ((password.length() < 3) or (matched == false)) {
+                    textError.visibility = View.VISIBLE
+                    textError.setText("Че то не так с паролем")
+                }
             }
+
         }
     }
 }
