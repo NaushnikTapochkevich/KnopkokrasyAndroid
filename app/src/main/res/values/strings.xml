@@ -5,4 +5,7 @@
     <string name="enter_password">введите пароль</string>
     <string name="come">Войти</string>
     <string name="text">текст</string>
+    <string name="login_password_error">Че то не так с паролем и логином</string>
+    <string name="login_error">Че то не так с логином</string>
+    <string name="password_error">Че то не так с паролем</string>
 </resources>
