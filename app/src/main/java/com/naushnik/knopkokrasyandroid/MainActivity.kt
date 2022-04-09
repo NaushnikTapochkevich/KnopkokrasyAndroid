@@ -39,17 +39,13 @@ class MainActivity : AppCompatActivity() {
                     textError.visibility = View.VISIBLE
                     textError.text = getString(R.string.login_password_error)
                 }
-                else -> {
-                    when {
-                        (username.length() < 3) -> {
-                            textError.visibility = View.VISIBLE
-                            textError.text = getString(R.string.login_error)
-                        }
-                        ((password.length() < 3) or (matched == false)) -> {
-                            textError.visibility = View.VISIBLE
-                            textError.text = getString(R.string.password_error)
-                        }
-                    }
+                (username.length() < 3) -> {
+                    textError.visibility = View.VISIBLE
+                    textError.text = getString(R.string.login_error)
+                }
+                ((password.length() < 3) or (!matched)) -> {
+                    textError.visibility = View.VISIBLE
+                    textError.text = getString(R.string.password_error)
                 }
             }
         }
