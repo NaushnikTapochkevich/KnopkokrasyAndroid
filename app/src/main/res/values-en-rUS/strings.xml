@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KnopkokrasyAndroid</string>
+    <string name="authorization">Authorization</string>
+    <string name="enter_login">enter login</string>
+    <string name="enter_password">enter password</string>
+    <string name="come">to come in</string>
+    <string name="text">text</string>
+    <string name="login_password_error">login password error</string>
+    <string name="login_error">login error</string>
+    <string name="password_error">password error</string>
+</resources>
