@@ -9,4 +9,12 @@
     <string name="login_password_error">login password error</string>
     <string name="login_error">login error</string>
     <string name="password_error">password error</string>
+    <string name="sign_up">Sing up</string>
+    <string name="forgot_pass">forgot pass?</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="sign_in">Sign in</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="have_account">Already have account?</string>
+    <string name="pass_recovery">Pass recovery</string>
 </resources>

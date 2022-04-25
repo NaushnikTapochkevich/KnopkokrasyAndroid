@@ -13,4 +13,22 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="BottomButton">
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:layout_marginBottom">27dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:background">@drawable/button_background</item>
+    </style>
+    <style name="BottomButtonLight">
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:layout_marginBottom">27dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:background">@drawable/button_background_light</item>
+    </style>
+
 </resources>

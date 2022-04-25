@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">KnopkokrasyAndroid</string>
-    <string name="authorization">Авторизация</string>
-    <string name="enter_login">введите логин</string>
-    <string name="enter_password">введите пароль</string>
+    <string name="authorization">Добро пожаловать</string>
+    <string name="enter_login">логин</string>
+    <string name="enter_password">пароль</string>
     <string name="come">Войти</string>
     <string name="text">текст</string>
     <string name="login_password_error">Че то не так с паролем и логином</string>
     <string name="login_error">Че то не так с логином</string>
     <string name="password_error">Че то не так с паролем</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="forgot_pass">Забыл пароль?</string>
+    <string name="welcome_back">Добро пожаловать!</string>
+    <string name="sign_in">Войти</string>
+    <string name="email">Мейл</string>
+    <string name="password">Пароль</string>
+    <string name="have_account">Уже есть аккаунт?</string>
+    <string name="pass_recovery">окно для востановления пароля</string>
 </resources>

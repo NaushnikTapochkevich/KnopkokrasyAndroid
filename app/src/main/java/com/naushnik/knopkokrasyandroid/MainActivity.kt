@@ -1,53 +1,45 @@
 package com.naushnik.knopkokrasyandroid
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.naushnik.knopkokrasyandroid.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var binding: ActivityMainBinding
+    val signInFragment = FragmentSignIn()
+    val emailFragment = FragmentEmail()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        //инициализируем вьюшки
-        val username: EditText = findViewById(R.id.edit_user)
-        val password: EditText = findViewById(R.id.edit_password)
-        val btnAuthorization: Button = findViewById(R.id.button_login)
-        val textError: TextView = findViewById(R.id.text)
 
-        btnAuthorization.setOnClickListener {
+        startFragment(signInFragment)
 
-            val intent = Intent(this, SecondActivity::class.java)
+    }
 
-            val regex = Regex("[a-zA-z0-9]")
-            val textPassword = password.text.toString()
-            val matched = regex.containsMatchIn(textPassword)
+    fun startFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container_view, fragment)
+            .commit()
+    }
 
-            when {
-                ((username.length() >= 3) and (password.length() >= 8) and (matched)) -> {
-                    textError.visibility = View.INVISIBLE
-                    intent.putExtra(SecondActivity.TRANSMITTED, username.text.toString())
-                    startActivity(intent)
-                }
-                ((username.length() < 3) and (password.length() < 8)) -> {
-                    textError.visibility = View.VISIBLE
-                    textError.text = getString(R.string.login_password_error)
-                }
-                (username.length() < 3) -> {
-                    textError.visibility = View.VISIBLE
-                    textError.text = getString(R.string.login_error)
-                }
-                ((password.length() < 3) or (!matched)) -> {
-                    textError.visibility = View.VISIBLE
-                    textError.text = getString(R.string.password_error)
-                }
-            }
-        }
+    fun startFragmentBack(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container_view, fragment)
+            .addToBackStack("fragment")
+            .commit()
+    }
+
+    fun emailFinish(textEmail: String){
+        val bundle = Bundle()
+        bundle.putString("identifier", textEmail)
+
+        emailFragment.setArguments(bundle)
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container_view, emailFragment)
+            .commit()
     }
 }
